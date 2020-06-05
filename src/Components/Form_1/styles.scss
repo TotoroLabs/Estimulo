@@ -1,0 +1,9 @@
+@media (max-width: 650px) {
+    .form-options#form1 {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-pic {
+        display: none;
+    }
+}
