@@ -1,0 +1,23 @@
+footer {
+    width: 100%;
+    display: block;
+    padding: 1rem 0 3rem 0;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(147, 157, 165, 0.24);
+}
+
+footer .wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: var(--common-text-graydark);
+    font-size: 13px;
+    font-weight: 300;
+}
+
+@media (max-width: 650px) {
+    footer .wrapper {
+        padding: 0 1rem;
+    }
+}

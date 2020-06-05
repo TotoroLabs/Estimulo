@@ -1,0 +1,153 @@
+section#form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section#form .content {
+    max-width: 1400px;
+    width: 100%;
+    height: 650px;
+    background: #fff;
+    margin: 50px auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    display: grid;
+    flex-direction: flex;
+}
+
+section#form .form-body {
+    padding: 2rem 2rem 5rem 2rem;
+    display: block;
+}
+section#form .form-body .form-header {
+    opacity: 0.0001;
+    display: block;
+    animation: fadeInUp 0.8s ease-in-out 0s forwards;
+}
+section#form .form-body .form-header .form-title {
+    font-weight: bold;
+    font-size: 48px;
+    color: #333;
+}
+section#form .form-body .form-header .form-description {
+    font-weight: 100;
+    font-size: 24px;
+    color: var(--common-text-graydark);
+}
+section#form .form-options {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+section#form .form-options .left-content {
+    margin-right: 50px;
+    animation: FadeInRight 0.8s ease-in-out 0s forwards;
+}
+section#form .form-options .right-content {
+    margin-left: 50px;
+    animation: FadeInLeft 0.8s ease-in-out 0s forwards;
+}
+section#form .form-options .left-content,
+section#form .form-options .right-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    color: var(--common-text-graydark);
+}
+section#form .form-actions {
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: space;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    button {
+        margin-right: auto;
+        border: 0;
+        background: var(--common-blue);
+        color: #fff;
+        padding: 1rem 2rem;
+        font-size: 22px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    button:disabled,
+    button[disabled] {
+        background-color: #cccccc;
+        color: #666666;
+        cursor: default;
+    }
+}
+textarea {
+    height: 200px;
+    width: 100%;
+    resize: none;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    color: #444;
+    margin-bottom: 50px;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -50px, 0);
+        transform: translate3d(0, -50px, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes FadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 50px, 0);
+        transform: translate3d(0, 50px, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes FadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(50px, 0, 0);
+        transform: translate3d(50px, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes FadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-50px, 0, 0);
+        transform: translate3d(-50px, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}

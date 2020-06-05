@@ -1,0 +1,58 @@
+section#end {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+section#end .form-header {
+    margin-bottom: auto;
+}
+
+section#end .form-actions {
+    margin-top: auto;
+    animation: fadeInCenter 0.8s ease-in-out 0s forwards;
+    width: 100%;
+    display: flex;
+    button {
+        margin: 0 auto;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            background: #6600e6;
+        }
+    }
+}
+
+section#end .end-text,
+section#end .text-tip {
+    text-align: center;
+    color: var(--common-text-graydark);
+    animation: fadeInCenter 0.8s ease-in-out 0s forwards;
+}
+section#end .text-tip {
+    margin-top: auto;
+}
+section#end .end-icon {
+    width: 48px;
+    height: 48px;
+    margin: 40px auto 0 auto;
+    animation: fadeInCenter 0.8s ease-in-out 0s forwards;
+    img {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+}
+@keyframes fadeInCenter {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
