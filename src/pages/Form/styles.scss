@@ -9,7 +9,8 @@ section#form {
 section#form .content {
     max-width: 1400px;
     width: 100%;
-    height: 650px;
+    max-height: 850px;
+    height: 100%;
     background: #fff;
     margin: 50px auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -149,5 +150,12 @@ textarea {
         opacity: 1;
         -webkit-transform: none;
         transform: none;
+    }
+}
+
+@media (max-width: 650px) {
+    textarea {
+        width: 210%;
+        margin-left: -100px;
     }
 }
