@@ -8,15 +8,17 @@ export default function Enviado({ history }) {
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
     const [userdata, setUserdata] = useState({});
     const location = useLocation();
-    useEffect(() => {
-        if (location.state.user) {
+    function getDataLocation() {
+        if (location.state) {
             removeCookie("token", { path: "/" });
             setUserdata(location.state.user);
         } else {
             history.push("/");
         }
-    }, [history, location.state.user, removeCookie]);
-
+    }
+    useEffect(() => {
+        getDataLocation();
+    });
     return (
         <section id="sent">
             <LiteNav user={userdata.nome} />

@@ -112,7 +112,7 @@ export default function Welcome() {
                         </div>
                         <div className="text-section" style={{marginTop: 30}}>
                             Para começar, basta entrar na plataforma utilizando
-                            seus dados do SUAP. Simples e fácil. :)
+                            seus dados do SUAP. Simples e fácil.
                         </div>
                         <div className="box-actions">
                             <button onClick={handleLogin}>COMEÇAR</button>
