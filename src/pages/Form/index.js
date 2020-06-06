@@ -46,10 +46,16 @@ export default function Form({ history }) {
         setUserdata(newobj);
     }
     useEffect(() => {
-        setUserdata(location.state.user);
-    }, [location.state.user]);
+        if(location.state) {
+            setUserdata(location.state.user);
+        }
+    }, [location.state, location.state.user]);
     useEffect(() => {
         if (!cookies.token) {
+            history.push("/");
+        }
+        if (cookies.token && localStorage.getItem('assigned') && progress < 100) {
+            console.log("joguei pro home");
             history.push("/");
         }
     });
@@ -57,7 +63,8 @@ export default function Form({ history }) {
         async function sendForm() {
             await mongodb
                 .post("/forms", userdata)
-                .then((response) => {
+                .then(() => {
+                    localStorage.setItem('assigned', true);
                 })
                 .catch((error) => {
                     console.log("erro!! " + error);
