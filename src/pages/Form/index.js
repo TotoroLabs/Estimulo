@@ -35,7 +35,6 @@ export default function Form({ history }) {
         setProgress(e);
     }
     async function handleForm(data) {
-        console.log(data);
         setCurrentSelected(data);
         setBtndisabled(false);
     }
@@ -44,15 +43,11 @@ export default function Form({ history }) {
         setBtndisabled(true);
         var newobj = userdata;
         Object.assign(newobj, currentSelected);
-        console.log("userdata é: " + JSON.stringify(userdata));
-        console.log("currentSelected é: " + JSON.stringify(currentSelected));
-        console.log("o newobj é:" + JSON.stringify(newobj));
         setUserdata(newobj);
     }
     useEffect(() => {
         setUserdata(location.state.user);
     }, [location.state.user]);
-    console.log(userdata.nome);
     useEffect(() => {
         if (!cookies.token) {
             history.push("/");
@@ -63,7 +58,6 @@ export default function Form({ history }) {
             await mongodb
                 .post("/forms", userdata)
                 .then((response) => {
-                    console.log("sucesso! " + response.data);
                 })
                 .catch((error) => {
                     console.log("erro!! " + error);
@@ -74,7 +68,7 @@ export default function Form({ history }) {
             setIsloading(true);
             sendForm();
         }
-    }, [progress, userdata]);
+    }, [progress, removeCookie, userdata]);
     return (
         <section id="form">
             <LiteNav user={userdata.nome} />

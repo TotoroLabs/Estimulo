@@ -1,4 +1,5 @@
 footer {
+    margin-top: auto;
     width: 100%;
     display: block;
     padding: 1rem 0 3rem 0;
@@ -19,5 +20,14 @@ footer .wrapper {
 @media (max-width: 650px) {
     footer .wrapper {
         padding: 0 1rem;
+        display: flex;
+        flex-direction: row;
+    }
+    footer .wrapper .center-content {
+        display: none;
+    }
+    footer .wrapper .right-content {
+        margin-left: auto;
+        text-align: right;
     }
 }

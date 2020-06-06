@@ -4,11 +4,12 @@ section#form-n-j-1 {
     flex-direction: column;
 }
 section#form-n-j-1 .form-opt {
-    margin-top: 30px;
+    margin: 0 auto;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     justify-content: center;
 }
 section#form-n-j-1 .form-opt .left-content {
@@ -28,7 +29,7 @@ section#form-n-j-1 .form-opt .right-content {
     color: var(--common-text-graydark);
 }
 section#form-n-j-1 .form-actions {
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     button {
         border: 0;
         background: var(--common-blue);
@@ -66,5 +67,15 @@ section#form-n-j-1 .form-text {
         opacity: 1;
         -webkit-transform: none;
         transform: none;
+    }
+}
+
+@media (max-width: 650px) {
+    section#form-n-j-1 .form-text {
+        width: 100%;
+    }
+    section#form-n-j-1 .form-opt .left-content,
+    section#form-n-j-1 .form-opt .left-content {
+        margin: 0;
     }
 }

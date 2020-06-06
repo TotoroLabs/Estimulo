@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import api from "../../services/api";
+import mongodb from "../../services/mongodb";
 import LiteNav from "../../Components/LiteNav";
 import Emoji from "../../interfaces/emoji";
 import "./sytles.scss";
@@ -48,9 +49,15 @@ export default function Welcome() {
                 .get(`/api/eu/`, {
                     headers: { Authorization: `Bearer ${cookies.token}` },
                 })
-                .then((response) => {
-                    console.log('recebi do oauth3rd:' + JSON.stringify(response.data));
-                    history.push({pathname: '/questionario', state: {user: (response.data)} });
+                .then(async (response) => {
+                    console.log('recebi do oauth3rd:' + JSON.stringify(response.data.identificacao));
+                    const mongodbresponse = await mongodb.get(`/form/${response.data.identificacao}`);
+                    console.log("a resposta é: " + JSON.stringify(mongodbresponse.data));
+                    if(Object.keys(mongodbresponse.data).length) {
+                        history.push({pathname: '/enviado', state: {user: (response.data)} });
+                    } else {
+                        history.push({pathname: '/questionario', state: {user: (response.data)} });
+                    }
 
                 })
                 .catch((error) => {
@@ -73,10 +80,6 @@ export default function Welcome() {
             `${process.env.REACT_APP_SUAP_URL}/o/authorize/?response_type=token&grant_type=implict&client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
             "_self"
         );
-    }
-
-    async function handleLogout() {
-        removeCookie("token", { path: "/" });
     }
 
     return (

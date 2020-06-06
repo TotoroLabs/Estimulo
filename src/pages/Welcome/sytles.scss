@@ -62,3 +62,9 @@ section#welcome .content .box-actions {
         }
     }
 }
+
+@media (max-width: 650px) {
+    section#welcome .content {
+        width: 90%;
+    }
+}
