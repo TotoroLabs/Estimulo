@@ -156,6 +156,9 @@ textarea {
 @media (max-width: 650px) {
     textarea {
         width: 210%;
-        margin-left: -100px;
+        margin-left: -92px;
+    }
+    section#form .content {
+        width: 90%;
     }
 }

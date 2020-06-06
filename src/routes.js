@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Form from "./pages/Form";
 import Welcome from "./pages/Welcome";
+import Enviado from "./pages/Enviado";
 
 export default function Routes() {
   return (
@@ -10,6 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Welcome} />
         <Route path="/questionario" component={Form} />
+        <Route path="/enviado" component={Enviado} />
       </Switch>
     </BrowserRouter>
   );
