@@ -22,7 +22,6 @@ export default function Form({ history }) {
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
     const [btndisabled, setBtndisabled] = useState(true);
     const [userdata, setUserdata] = useState({});
-
     const [currentSelected, setCurrentSelected] = useState({});
     const useStyles = makeStyles({
         root: {
@@ -45,16 +44,24 @@ export default function Form({ history }) {
         Object.assign(newobj, currentSelected);
         setUserdata(newobj);
     }
-    useEffect(() => {
-        if(location.state) {
+    function getDataLocation() {
+        if (location.state) {
             setUserdata(location.state.user);
         }
-    }, [location.state, location.state.user]);
+    }
+    useEffect(() => {
+        getDataLocation();
+    });
+
     useEffect(() => {
         if (!cookies.token) {
             history.push("/");
         }
-        if (cookies.token && localStorage.getItem('assigned') && progress < 100) {
+        if (
+            cookies.token &&
+            localStorage.getItem("assigned") &&
+            progress < 100
+        ) {
             console.log("joguei pro home");
             history.push("/");
         }
@@ -64,7 +71,7 @@ export default function Form({ history }) {
             await mongodb
                 .post("/forms", userdata)
                 .then(() => {
-                    localStorage.setItem('assigned', true);
+                    localStorage.setItem("assigned", true);
                 })
                 .catch((error) => {
                     console.log("erro!! " + error);
@@ -115,10 +122,18 @@ export default function Form({ history }) {
                 </div>
             </div>
             <div className="form-actions">
-                <div className="box-loading" style={{marginRight: "auto"}}>{isloading? <CircularProgress color="secondary"/>: <div></div>}</div>
-               {progress < 100? <button onClick={handleCLick} disabled={btndisabled}>
-                    {progress < 80? "Próximo": "Enviar"}
-                </button> : null}
+                <div className="box-loading" style={{ marginRight: "auto" }}>
+                    {isloading ? (
+                        <CircularProgress color="secondary" />
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
+                {progress < 100 ? (
+                    <button onClick={handleCLick} disabled={btndisabled}>
+                        {progress < 80 ? "Próximo" : "Enviar"}
+                    </button>
+                ) : null}
             </div>
         </section>
     );
