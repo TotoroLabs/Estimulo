@@ -68,3 +68,9 @@ section#form-n-j-1 .form-text {
         transform: none;
     }
 }
+
+@media (max-width: 650px) {
+    section#form-n-j-1 .form-text {
+        width: 100%;
+    }
+}
