@@ -8,6 +8,7 @@ export default function Footer() {
             <div className="wrapper">
                 <div className="left-content">
                     <div className="content-item"><a href="https://github.com/KZTN">Feito com <Emoji symbol="💛" /></a></div>
+                    <div className="content-item"><a href="mailto:estimuloifrn@gmail.com">estimuloifrn@gmail.com</a></div>
                 </div>
                 <div className="center-content">
                     <div className="content-item">Políticas de privacidade</div>
@@ -15,7 +16,10 @@ export default function Footer() {
                 </div>
                 <div className="right-content">
                     <div className="content-item">
-                        © 2020 Estimulo IFRN. Todos os direitos reservados.
+                        © 2020 Estimulo IFRN
+                    </div>
+                    <div className="content-item">
+                       Direitos reservados.
                     </div>
                 </div>
                 <div className="outer-content"></div>

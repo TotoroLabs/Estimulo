@@ -156,5 +156,6 @@ textarea {
 @media (max-width: 650px) {
     section#form .content {
         width: 90%;
+        overflow: hidden;
     }
 }

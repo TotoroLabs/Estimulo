@@ -4,11 +4,12 @@ section#form-n-j-1 {
     flex-direction: column;
 }
 section#form-n-j-1 .form-opt {
-    margin-top: 30px;
+    margin: 0 auto;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     justify-content: center;
 }
 section#form-n-j-1 .form-opt .left-content {
@@ -72,5 +73,9 @@ section#form-n-j-1 .form-text {
 @media (max-width: 650px) {
     section#form-n-j-1 .form-text {
         width: 100%;
+    }
+    section#form-n-j-1 .form-opt .left-content,
+    section#form-n-j-1 .form-opt .left-content {
+        margin: 0;
     }
 }
