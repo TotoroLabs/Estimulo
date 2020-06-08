@@ -1,11 +1,11 @@
 section#gradientheader {
     width: 100%;
     height: 330px;
-    background: rgb(248, 219, 89);
+    background: rgb(83, 0, 166);
     background: linear-gradient(
         0deg,
-        rgba(248, 219, 89, 1) 0%,
-        rgba(190, 167, 68, 1) 100%
+        rgba(127, 0, 255, 1) 0%,
+        rgba(83, 0, 166, 1) 100%
     );
 }
 
@@ -18,6 +18,7 @@ section#gradientheader nav {
     padding: 1rem;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     color: white;
     & button {
         color: #fff;
