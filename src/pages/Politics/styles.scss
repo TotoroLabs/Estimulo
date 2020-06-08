@@ -55,5 +55,7 @@ section#politics .content .sections .section-item {
     section#politics .content .navigation,
     section#politics .content .sections {
         width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
