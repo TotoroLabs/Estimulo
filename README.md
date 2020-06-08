@@ -26,8 +26,10 @@
   <img alt="Estimulo" src=".github/Estimulo_showcase.png" width="100%">
 </p>
 
-## :fire: Atenção
-este é um protóptipo do projeto Estímulo. Será lançado até dia 8/06 sua fase inicial com um formulário com autenticação oauth2 da api do SUAP para levantamento de dados dos alunos e docentes, garantindo a pespectiva da situação dos projetos e melhorando na forma de como auxiliar os público alvo.
+## :warning: Atenção
+Foi lançado o primeiro protótipo da plataforma. Disponibilizamos um questionário para que estudantes e docentes estejam submetendo para que venhamos a ter dimensão da situação em que os projetos científicos se encontram. Caso você seja um integrande da rede do IFRN com acesso ao SUAP, contribua com sua opinião. Ela será importante para definirmos prioridades e como atingir de maneira efetiva o público alvo
+
+> Não há uma data limite de submissão, mas sua duração será limitada. Sendo removido assim que as primeiras funcionalidades estejam prontas.
 
 ## 💻 Projeto
 
