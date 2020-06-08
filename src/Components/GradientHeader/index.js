@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from 'react-router-dom';
 import "./styles.scss";
 
 export default function GradientHeader(logged) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return (
         <section id="gradientheader">
             <nav>
