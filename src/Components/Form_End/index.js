@@ -4,11 +4,13 @@ import Approved from "../../assets/svg/approved.svg";
 import mongodb from "../../services/mongodb";
 import "./styles.scss";
 
-export default function Form_End({identificacao}) {
+export default function Form_End({identificacao, email}) {
+    const [isloading, setIsloading] = useState(false);
     async function handleClick() {
-        console.log('estou enviando:' + identificacao);
+        setIsloading(true);
         await mongodb.put(`/subscribe/${identificacao}`, null).then(() => {
             alert('Cadastrado com sucesso na newsletter');
+            setIsloading(false);
         }).catch((error) => {
             console.log(error);
         });
@@ -31,7 +33,7 @@ export default function Form_End({identificacao}) {
                 <img src={Approved} alt="" srcset=""/>
             </div>
             <div className="text-tip">
-                Se preferir, iremos lhe manter informados via email acadêmico, <br/> basta clicar no botão abaixo.
+    Se preferir, iremos lhe manter informados via email acadêmico, <strong>{email}</strong> <br/> basta clicar no botão abaixo.
             </div>
             <div className="form-actions">
                 <button onClick={handleClick}>OK! Mantenha-me informado</button>
