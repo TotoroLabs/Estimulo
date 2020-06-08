@@ -25,17 +25,17 @@ nav#litenav .wrapper .right-content {
     justify-content: center;
 }
 nav#litenav .wrapper .left-content .logo {
+    margin-top: 5px;
     display: flex;
     align-self: center;
     img {
-        width: 52px;
-        height: 52px;
+        height: 84px;
+        width: 84px;
     }
 }
 nav#litenav .wrapper .left-content .brand {
     font-weight: 300;
     font-size: 32px;
-
     strong {
         font-weight: 700;
     }
