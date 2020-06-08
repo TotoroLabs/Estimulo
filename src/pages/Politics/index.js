@@ -13,7 +13,6 @@ export default function Politics() {
                         <header>Navege entre os tópicos</header>
                         <div className="navigation-item">
                             <a href="#about">
-                                {" "}
                                 Políticas de Privacidade – Estímulo
                             </a>
                         </div>
