@@ -101,7 +101,7 @@ export default function Welcome() {
                             científicas</strong> enquanto as aulas seguem paralizadas.
                         </div>
                         <div className="text-section">
-                            Também queremos ter a opinião de quem ainda não está vinculado a um trabalho ciêntifico, mas que tem interesse em integrar a um projeto ou até criar um. Nosso
+                            Também queremos ter a opinião de quem ainda não está vinculado a um trabalho científico, mas que tem interesse em integrar a um projeto ou até criar um. Nosso
                             objetivo a partir do levantamento desses dados é <strong>poder ajudar a todos</strong>.
                         </div>
                         <div className="text-section">
