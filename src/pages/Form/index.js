@@ -62,7 +62,6 @@ export default function Form({ history }) {
             localStorage.getItem("assigned") &&
             progress < 100
         ) {
-            console.log("joguei pro home");
             history.push("/");
         }
     });
@@ -117,7 +116,7 @@ export default function Form({ history }) {
                       progress < 100 ? (
                         <Form_S_O_1 onSubmit={handleForm} />
                     ) : progress === 100 && isloading === false ? (
-                        <Form_End identificacao={userdata.identificacao} />
+                        <Form_End identificacao={userdata.identificacao} email={userdata.email} />
                     ) : null}
                 </div>
             </div>
