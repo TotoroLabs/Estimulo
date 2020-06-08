@@ -37,6 +37,10 @@ O Estimulo é um projeto que visa conectar estudantes e docentes da rede do IFRN
 
 Devido a quarentena. Muitos projetos estão parados e sem continuidade pela inviabilidade dos seus integrantes não estarem presentes em seus campus. Estímulo garantirá a continuidade da ciência conectando alunos e orientadores, dando visiblidade aos projetos.
 
+## :memo: Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
 ## Autores
 
 <table align="center">
