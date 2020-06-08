@@ -36,3 +36,15 @@ O Estimulo é um projeto que visa conectar estudantes e docentes da rede do IFRN
 ## 🤔 Motivo/features
 
 Devido a quarentena. Muitos projetos estão parados e sem continuidade pela inviabilidade dos seus integrantes não estarem presentes em seus campus. Estímulo garantirá a continuidade da ciência conectando alunos e orientadores, dando visiblidade aos projetos.
+
+## Autores
+
+<table align="center">
+  <tr >
+    <td align="center"><a href="https://github.com/KZTN"><img src="https://avatars0.githubusercontent.com/u/6463299?s=460&u=4461e9ccc7bb327fc8183a09c3da015c832924d6&v=4" width="100px;" alt=""/><br /><sub><b>Kaio César</b></sub></a><br /><a href="https://github.com/kztn/Estimulo/commits?author=kztn" title="Code">💻</a> <a href="#kztn" title="Design">🎨</a></td>
+  <tr>
+</table>
+
+## 
+
+<p align="center">Feito com ♥ by KZTN</p>
