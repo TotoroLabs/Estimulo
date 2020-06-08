@@ -1,9 +1,12 @@
-import React from "react";
+import React,  {useEffect} from "react";
 import GradientHeader from "../../Components/GradientHeader";
 import Footer from "../../Components/Footer";
 import "./styles.scss";
 
 export default function Politics() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return (
         <>
             <GradientHeader />
