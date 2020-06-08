@@ -33,7 +33,7 @@ export default function Form_End({identificacao, email}) {
                 <img src={Approved} alt="" srcset=""/>
             </div>
             <div className="text-tip">
-    Se preferir, iremos lhe manter informados via email acadêmico, <strong>{email}</strong> <br/> basta clicar no botão abaixo.
+    Se preferir, iremos lhe manter informados via email acadêmico, <strong>{email}</strong> <br/> Basta clicar no botão abaixo.
             </div>
             <div className="form-actions">
                 <button onClick={handleClick}>OK! Mantenha-me informado</button>
