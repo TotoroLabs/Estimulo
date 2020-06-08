@@ -2,7 +2,7 @@
 <p align="center">
     <a href="https://estimulo.herokuapp.com/"><img alt="COVID-RN" title="#app" src=".github/logo.svg" width="250px" /><a/>
 </p>
-    <h1 align="center">Estimulo</h1>
+    <h1 align="center">Estímulo</h1>
 
 <h4 align="center">
  Plataforma de livre iniciativa de projetos de pesquisa IFRN
@@ -35,9 +35,10 @@ Foi lançado o primeiro protótipo da plataforma. Disponibilizamos um questioná
 
 O Estimulo é um projeto que visa conectar estudantes e docentes da rede do IFRN com o âmbito de promoter a livre iniciativa a pesquisa ciêntifica nas mais diversas areas
 
-## 🤔 Motivo/features
+## 🤔 Motivo
 
 Devido a quarentena. Muitos projetos estão parados e sem continuidade pela inviabilidade dos seus integrantes não estarem presentes em seus campus. Estímulo garantirá a continuidade da ciência conectando alunos e orientadores, dando visiblidade aos projetos.
+
 
 ## :memo: Licença
 
