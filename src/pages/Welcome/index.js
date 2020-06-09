@@ -112,19 +112,14 @@ export default function Welcome() {
                             </div>
                             <div className="text-section">
                                 No intuito de ajudar a todos os estudantes
-                                matriculados do IFRN, queremos saber a
-                                <strong>
-                                    situação das suas pesquisas científicas
-                                </strong>
-                                enquanto as aulas seguem paralizadas.
+                                matriculados do IFRN, queremos saber a <strong>situação das suas pesquisas científicas</strong> enquanto as aulas seguem paralizadas.
                             </div>
                             <div className="text-section">
                                 Também queremos ter a opinião de quem ainda não
                                 está vinculado a um trabalho científico, mas que
                                 tem interesse em integrar a um projeto ou até
                                 criar um. Nosso objetivo a partir do
-                                levantamento desses dados é
-                                <strong>poder ajudar a todos</strong>.
+                                levantamento desses dados é <strong>poder ajudar a todos</strong>.
                             </div>
                             <div className="text-section">
                                 Todos os dados levantados serão de suma
@@ -133,8 +128,7 @@ export default function Welcome() {
                                 e que você decole. <Emoji symbol="🚀" />
                             </div>
                             <div className="text-section">
-                                Nós da <span>Estimulo</span> defendemos a
-                                <strong>livre iniciativa</strong> e o potencial
+                                Nós da <span>Estimulo</span> defendemos a <strong>livre iniciativa</strong> e o potencial
                                 que todos possuem. Todos podem contribuir aqui.
                                 <Emoji symbol="💙" />
                             </div>
