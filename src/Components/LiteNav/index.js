@@ -5,7 +5,7 @@ import "./styles.scss";
 
 export default function LiteNav({ user }) {
     return (
-        <nav>
+        <nav id="litenav">
             <div className="wrapper">
                 <Link to="/">
                     <div className="left-content">

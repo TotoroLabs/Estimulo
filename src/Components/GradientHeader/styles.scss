@@ -1,0 +1,66 @@
+section#gradientheader {
+    width: 100%;
+    height: 350px;
+    background: rgb(83, 0, 166);
+    background: linear-gradient(
+        0deg,
+        rgba(127, 0, 255, 1) 0%,
+        rgba(83, 0, 166, 1) 100%
+    );
+}
+
+section#gradientheader nav {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background: transparent;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    & button {
+        color: #333;
+        background: #00e666;
+        border: 0;
+        padding: 0.5rem 0.7rem;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            background: var(--common-green);
+        }
+    }
+}
+section#gradientheader .left-content .logo {
+    font-size: 18px;
+}
+
+section#gradientheader .center-content {
+    max-width: 1400px;
+    width: 100%;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    & header {
+        font-size: 44px;
+        line-height: 1.8;
+    }
+    & span {
+        font-size: 18px;
+    }
+}
+
+section#gradientheader nav .right-content {
+    display: flex;
+    flex-direction: row;
+    & * {
+        margin-left: 10px;
+    }
+    & .nav-item button#btn2 {
+        background: transparent;
+        color: #fff;
+        font-weight: bold;
+    }
+}
