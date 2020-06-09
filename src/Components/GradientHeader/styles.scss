@@ -21,13 +21,19 @@ section#gradientheader nav {
     align-items: center;
     color: white;
     & button {
-        color: #fff;
-        background: #456;
+        color: #333;
+        background: #00e666;
         border: 0;
         padding: 0.5rem 0.7rem;
         border-radius: 4px;
         cursor: pointer;
+        &:hover {
+            background: var(--common-green);
+        }
     }
+}
+section#gradientheader .left-content .logo {
+    font-size: 18px;
 }
 
 section#gradientheader .center-content {

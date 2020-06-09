@@ -8,7 +8,7 @@ export default function Footer() {
         <footer>
             <div className="wrapper">
                 <div className="left-content">
-                    <div className="content-item"><a href="https://github.com/KZTN">Feito com <Emoji symbol="💛" /></a></div>
+                    <div className="content-item"><a href="https://github.com/KZTN">Feito com <Emoji symbol="💙" /></a></div>
                     <div className="content-item"><a href="mailto:estimuloifrn@gmail.com">estimuloifrn@gmail.com</a></div>
                 </div>
                 <div className="center-content">

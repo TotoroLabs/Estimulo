@@ -8,7 +8,7 @@ export default function GradientHeader(logged) {
         <section id="gradientheader">
             <nav>
                 <div className="left-content">
-                    <div className="logo">Estímulo IFRN</div>
+                    <div className="logo"><strong>Estímulo</strong> IFRN</div>
                 </div>
                 <div className="right-content">
                 <div className="nav-item">
