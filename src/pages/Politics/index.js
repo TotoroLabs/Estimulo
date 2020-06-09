@@ -13,7 +13,7 @@ export default function Politics() {
     }, [isloading]);
     return (
         <>
-            <GradientHeader />
+            <GradientHeader title={"Políticas de Privacidade"} text={"Políticas de privacidade da plataforma Estímulo"}/>
             <section id="politics">
                 <div className="content">
                     <div className="navigation">
