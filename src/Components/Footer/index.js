@@ -13,7 +13,7 @@ export default function Footer() {
                 </div>
                 <div className="center-content">
                     <div className="content-item"><Link to="/politicas-de-privacidade">Políticas de privacidade</Link></div>
-                    <div className="content-item">Termos de uso</div>
+                    <div className="content-item"><Link to="/termos-de-uso">Termos de uso</Link></div>
                 </div>
                 <div className="right-content">
                     <div className="content-item">

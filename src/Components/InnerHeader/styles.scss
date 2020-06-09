@@ -1,0 +1,19 @@
+header.innerheader {
+    padding: 20px 240px;
+    width: 100%;
+    background: var(--common-blue);
+    color: #fff;
+    height: 250px;
+}
+header.innerheader .content {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+header.innerheader .content .box-logo {
+    line-height: 1.2;
+    font-size: 26px;
+}

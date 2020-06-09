@@ -1,0 +1,129 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 10%;
+  z-index: 100000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .content {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  width: 100%;
+  height: 700px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: baseline;
+}
+.modal .content .close-button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: auto;
+  padding: 1rem 0.5rem;
+  align-items: center;
+}
+.modal .content .close-button span {
+  color: #666;
+  font-size: 10px;
+}
+.modal .content .close-button button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.modal .content .details {
+  width: 100%;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  margin-bottom: 240px;
+  padding: 1rem;
+}
+
+.modal .content .details .box-left {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.modal .content .details .box-left h1 {
+  font-weight: 200;
+}
+.modal .content .details .box-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal .content .details .box-right {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.modal .content .details .box-right .contact {
+  margin: 80px auto 0 auto;
+  width: 100%;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0.8rem 0.5rem;
+  //border: 1px solid #444;
+  background: #25d366;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+.modal .content .details .box-right .contact * {
+  cursor: pointer;
+}
+
+.modal .content .details .box-right .favorites {
+  margin: 10px auto 0 auto;
+  width: 100%;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal .content .box-info {
+  color: #333;
+
+  margin-top: 35%;
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  position: absolute;
+}
+.modal .content .box-info * {
+  margin-bottom: 10px;
+}

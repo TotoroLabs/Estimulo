@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import "./styles.scss";
 
-export default function GradientHeader(logged) {
+export default function GradientHeader({logged, title="", text=""}) {
 
     return (
         <section id="gradientheader">
@@ -20,8 +20,8 @@ export default function GradientHeader(logged) {
                 </div>
             </nav>
             <div className="center-content">
-                <header>Políticas de Privacidade</header>
-                <span>Políticas de privacidade da plataforma Estímulo</span>
+                <header>{title}</header>
+                <span>{text}</span>
             </div>
         </section>
     );
