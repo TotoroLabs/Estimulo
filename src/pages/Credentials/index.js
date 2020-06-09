@@ -61,11 +61,14 @@ export default function Credentials({ history }) {
         data.append("street", streetfield);
         data.append("number", numberfield);
         data.append("uf", uffield);
-        data.append("identificacao", identificacaofield);
         data.append("city", cityfield);
+        if(newemailfield !== "") {
+            data.append("email", newemailfield);
+        }
+
         await mongodb
             .put("/users", data, {
-                headers: { Authorization: `Bearer ${cookies.token}` },
+                headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
             })
             .then(() => {
                 alert("sucesso");
