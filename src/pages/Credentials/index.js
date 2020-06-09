@@ -20,7 +20,7 @@ export default function Credentials({ history }) {
     const [uffield, setUffield] = useState("");
     const [emailfield, setEmailfield] = useState("");
     const [newemailfield, setNewemailfield] = useState("");
-    const [matriculafield, setMatriculafiled] = useState("");
+    const [identificacaofield, setidentificacaofieldd] = useState("");
 
     /*   useEffect(() => {
     async function getUserData() {
@@ -58,6 +58,7 @@ export default function Credentials({ history }) {
         data.append("street", streetfield);
         data.append("number", numberfield);
         data.append("uf", uffield);
+        data.append("identificacao", identificacaofield);
         data.append("city", cityfield);
         await api
             .put("/users", data, {
@@ -188,7 +189,7 @@ export default function Credentials({ history }) {
                                             disabled={true}
                                             name="matricula"
                                             id="matricula"
-                                            placeholder={matriculafield}
+                                            placeholder={identificacaofield}
                                         />
                                     </div>
                                     <div className="form-element">
