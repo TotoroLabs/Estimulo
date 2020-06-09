@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import InnerHeader from "../../Components/InnerHeader";
 import Footer from "../../Components/Footer";
-
 import {
     FaGraduationCap,
     FaStar,
@@ -17,15 +16,58 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 export default function Profile({ history }) {
+    const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
     const [cameraisHiden, setCameraishiden] = useState(true);
     const [name, setName] = useState("");
     const [thumbnail, setThumbnail] = useState(null);
 
+
+    useEffect(() => {
+        async function getUserData() {
+          await mongodb
+            .get('/sessions', {
+              headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
+            })
+            .then((response) => {
+              setName(response.data.name);
+              if (response.data.thumbnail) {
+                setThumbnail(response.data.thumbnail);
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+        if (JWTcookie.jwt) {
+          getUserData();
+        } else {
+          history.push('/');
+        }
+      }, [JWTcookie.jwt, cookies.token, history]);
+
     function handleLogout() {
         removeCookie("token", { path: "/" });
+        removeJWTcookie("jwt", { path: "/" });
         history.push("/");
     }
+
+    async function handleSubmitAvatar(e) {
+        e.preventDefault();
+        const previewURL = URL.createObjectURL(e.target.files[0]);
+        const data = new FormData();
+        data.append('thumbnail', e.target.files[0]);
+        await mongodb
+          .put('/users', data, {
+            headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
+          })
+          .then(() => {
+            setThumbnail(previewURL);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
 
     return (
         <>
@@ -40,7 +82,7 @@ export default function Profile({ history }) {
                             onMouseOut={() => setCameraishiden(true)}
                         >
                             <form
-                                // onChange={handleSubmitAvatar}
+                                onChange={handleSubmitAvatar}
                                 enctype="multipart/form-data"
                                 method="put"
                             >

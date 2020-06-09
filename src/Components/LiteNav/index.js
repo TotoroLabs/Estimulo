@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
 import "./styles.scss";
 
-export default function LiteNav({ user }) {
+export default function LiteNav({ history, user }) {
+    const [boxactions, setBoxactions] = useState(false);
+    const [inputfield, setInputfield] = useState();
+    const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+    function handleLogin() {
+        window.open(
+            `${process.env.REACT_APP_SUAP_URL}/o/authorize/?response_type=token&grant_type=implict&client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
+            "_self"
+        );
+    }
+    function handleActiveBoxActions() {
+        console.log("ta desativado");
+
+        setBoxactions(true);
+    }
+    function handleDisableBoxActions() {
+        console.log("ta desativado");
+        setBoxactions(false);
+    }
+    function handleLogout() {
+        removeCookie("token", { path: "/" });
+        history.push("/");
+    }
     return (
         <nav id="litenav">
             <div className="wrapper">
@@ -19,7 +43,36 @@ export default function LiteNav({ user }) {
                 </Link>
                 <div className="right-content">
                     <div className="profile">
-                        <span>Olá, {user ? user : "visitante"}</span>
+                        <button onClick={handleActiveBoxActions}>
+                            Olá, {user ? user : "visitante"}
+                        </button>
+                    </div>
+                    <div
+                        className={
+                            boxactions ? "actions active" : "actions disable"
+                        }
+                        onMouseOver={handleActiveBoxActions}
+                        onMouseOut={handleDisableBoxActions}
+                    >
+                        {user ? (
+                            <>
+                                <Link to="/eu">
+                                    <div className="action-item">
+                                        Minha Conta
+                                    </div>
+                                </Link>
+                                <div
+                                    className="action-item"
+                                    onClick={handleLogout}
+                                >
+                                    <a href="#">Sair</a>
+                                </div>
+                            </>
+                        ) : (
+                            <a onClick={handleLogin}>
+                                <div className="action-item">Entrar</div>
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>

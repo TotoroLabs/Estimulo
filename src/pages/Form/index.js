@@ -86,7 +86,7 @@ export default function Form({ history }) {
     return (
         <>
             <section id="form">
-                <LiteNav user={userdata.nome} />
+                <LiteNav user={userdata.nome}  history={history}/>
                 <div className="content">
                     <div className={useStyles.root}>
                         <LinearProgress

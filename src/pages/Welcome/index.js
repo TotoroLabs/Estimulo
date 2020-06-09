@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import api from "../../services/api";
 import mongodb from "../../services/mongodb";
@@ -7,9 +6,10 @@ import LiteNav from "../../Components/LiteNav";
 import Emoji from "../../interfaces/emoji";
 import Footer from "../../Components/Footer";
 import "./sytles.scss";
-export default function Welcome() {
-    const history = useHistory();
+export default function Welcome({ history }) {
+    const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
     function createToken() {
         var startTime = new Date().getTime();
         var finishTime = new Date(startTime + extractDuration() * 1000);
@@ -19,18 +19,32 @@ export default function Welcome() {
             sameSite: "lax",
         });
     }
-
+    async function createUser(response) {
+        await mongodb.post('/users', response.data);
+    }
+    async function createSession(response) {
+        await mongodb.post("/sessions", {
+            email: response.data.email,
+            identificacao: response.data.identificacao,
+        }).then((response) => {
+                console.log(" sessao criada com sucesso!");
+                var startTime = new Date().getTime();
+                var finishTime = new Date(
+                    startTime + 36000 * 1000
+                );
+                setJWTcookie("jwt", response.data.token, {
+                    path: "/",
+                    expires: finishTime,
+                    sameSite: "lax",
+                });
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
     var extractToken = function () {
         var match = document.location.hash.match(/access_token=(\w+)/);
         if (match != null) {
             return !!match && match[1];
-        }
-        return null;
-    };
-    var extractScope = function () {
-        var match = document.location.hash.match(/scope=(.*)/);
-        if (match != null) {
-            return match[1].split("+").join(" ");
         }
         return null;
     };
@@ -61,6 +75,17 @@ export default function Welcome() {
                     console.log(
                         "a resposta é: " + JSON.stringify(mongodbresponse.data)
                     );
+                    const userexists = await mongodb.get(
+                        `/users/${response.data.identificacao}`
+                    );
+                    if (Object.keys(userexists.data).length) {
+                        console.log('ja tem usuario, criando sessao');
+                        createSession(response);
+                    } else {
+                        console.log('nao tem usuario, criando sessao e usuario');
+                        createUser(response);
+                        createSession(response);
+                    }
                     if (Object.keys(mongodbresponse.data).length) {
                         history.push({
                             pathname: "/enviado",
@@ -82,12 +107,6 @@ export default function Welcome() {
         }
         getData();
     });
-    useEffect(() => {
-        console.log("o cookie é:" + cookies.token);
-        console.log("o token é: " + extractToken());
-        console.log("o escopo é: " + extractScope());
-        console.log("a duração da expiração do cookie é: " + extractDuration());
-    }, [cookies.token]);
     function handleLogin() {
         window.open(
             `${process.env.REACT_APP_SUAP_URL}/o/authorize/?response_type=token&grant_type=implict&client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
@@ -97,8 +116,8 @@ export default function Welcome() {
 
     return (
         <>
+            <LiteNav history={history} />
             <section id="welcome">
-                <LiteNav />
                 <div className="content">
                     <div className="content-center">
                         <header>
@@ -112,14 +131,19 @@ export default function Welcome() {
                             </div>
                             <div className="text-section">
                                 No intuito de ajudar a todos os estudantes
-                                matriculados do IFRN, queremos saber a <strong>situação das suas pesquisas científicas</strong> enquanto as aulas seguem paralizadas.
+                                matriculados do IFRN, queremos saber a{" "}
+                                <strong>
+                                    situação das suas pesquisas científicas
+                                </strong>{" "}
+                                enquanto as aulas seguem paralizadas.
                             </div>
                             <div className="text-section">
                                 Também queremos ter a opinião de quem ainda não
                                 está vinculado a um trabalho científico, mas que
                                 tem interesse em integrar a um projeto ou até
                                 criar um. Nosso objetivo a partir do
-                                levantamento desses dados é <strong>poder ajudar a todos</strong>.
+                                levantamento desses dados é{" "}
+                                <strong>poder ajudar a todos</strong>.
                             </div>
                             <div className="text-section">
                                 Todos os dados levantados serão de suma
@@ -128,7 +152,8 @@ export default function Welcome() {
                                 e que você decole. <Emoji symbol="🚀" />
                             </div>
                             <div className="text-section">
-                                Nós da <span>Estimulo</span> defendemos a <strong>livre iniciativa</strong> e o potencial
+                                Nós da <span>Estimulo</span> defendemos a{" "}
+                                <strong>livre iniciativa</strong> e o potencial
                                 que todos possuem. Todos podem contribuir aqui.
                                 <Emoji symbol="💙" />
                             </div>

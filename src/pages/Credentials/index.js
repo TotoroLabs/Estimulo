@@ -3,12 +3,14 @@ import InnerHeader from "../../Components/InnerHeader";
 import { FaCamera, FaArrowLeft } from "react-icons/fa";
 
 import { useCookies } from "react-cookie";
-import api from "../../services/api";
+import mongodb from "../../services/mongodb";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
 export default function Credentials({ history }) {
+    const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
     const [cameraisHiden, setCameraishiden] = useState(true);
     const [thumbnail, setThumbnail] = useState(null);
     const [namefield, setNamefield] = useState("");
@@ -22,11 +24,11 @@ export default function Credentials({ history }) {
     const [newemailfield, setNewemailfield] = useState("");
     const [identificacaofield, setidentificacaofieldd] = useState("");
 
-    /*   useEffect(() => {
+      useEffect(() => {
     async function getUserData() {
-      await api
-        .get('/user', {
-          headers: { Authorization: `Bearer ${cookies.token}` },
+      await mongodb
+        .get('/sessions', {
+          headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
         })
         .then((response) => {
           setNamefield(response.data.name);
@@ -36,18 +38,19 @@ export default function Credentials({ history }) {
           setCityfield(response.data.city);
           setNumberfield(response.data.number);
           setStreetfield(response.data.street);
+          setidentificacaofieldd(response.data.id)
           setUffield(response.data.uf);
           if (response.data.thumbnail) {
             setThumbnail(response.data.thumbnail);
           }
         });
     }
-    if (cookies.token) {
+    if (JWTcookie.jwt) {
       getUserData();
     } else {
       history.push('/');
     }
-  }, [cookies.token, history]); */
+  }, [JWTcookie.jwt, history]);
 
     async function handlesubmit(e) {
         e.preventDefault();
@@ -60,7 +63,7 @@ export default function Credentials({ history }) {
         data.append("uf", uffield);
         data.append("identificacao", identificacaofield);
         data.append("city", cityfield);
-        await api
+        await mongodb
             .put("/users", data, {
                 headers: { Authorization: `Bearer ${cookies.token}` },
             })
@@ -78,7 +81,7 @@ export default function Credentials({ history }) {
         const previewURL = URL.createObjectURL(e.target.files[0]);
         const data = new FormData();
         data.append("thumbnail", e.target.files[0]);
-        await api
+        await mongodb
             .put("/users", data, {
                 headers: { Authorization: `Bearer ${cookies.token}` },
             })
@@ -183,7 +186,9 @@ export default function Credentials({ history }) {
                                 </div>
                                 <div className="form-section">
                                     <div className="form-element">
-                                        <label htmlFor="matricula">Matrícula</label>
+                                        <label htmlFor="matricula">
+                                            Matrícula
+                                        </label>
                                         <input
                                             type="text"
                                             disabled={true}
@@ -193,9 +198,7 @@ export default function Credentials({ history }) {
                                         />
                                     </div>
                                     <div className="form-element">
-                                        <label htmlFor="email">
-                                            E-mail
-                                        </label>
+                                        <label htmlFor="email">E-mail</label>
                                         <input
                                             type="email"
                                             name="email"
