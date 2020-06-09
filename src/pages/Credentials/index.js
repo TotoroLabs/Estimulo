@@ -138,7 +138,7 @@ export default function Credentials({ history }) {
                             <span>Suas informações pessoais</span>
                         </div>
                         <div className="box-actions">
-                            <Link to="/BUZZ/profile">
+                            <Link to="/eu">
                                 <button title="Voltar ao menu principal">
                                     <FaArrowLeft size={18} color="#555" />
                                 </button>
