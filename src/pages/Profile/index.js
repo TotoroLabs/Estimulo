@@ -2,11 +2,17 @@ import React, { useState, useEffect } from "react";
 import InnerHeader from "../../Components/InnerHeader";
 import Footer from "../../Components/Footer";
 
-import { FaGraduationCap, FaStar, FaPen, FaCamera, FaBookmark } from "react-icons/fa";
+import {
+    FaGraduationCap,
+    FaStar,
+    FaPen,
+    FaCamera,
+    FaBookmark,
+} from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { FiLogOut, FiBook } from "react-icons/fi";
 import { useCookies } from "react-cookie";
-import api from "../../services/api";
+import mongodb from "../../services/mongodb";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
@@ -78,7 +84,7 @@ export default function Profile({ history }) {
                         </div>
                     </div>
                     <div className="box-actions">
-                        <Link to="/BUZZ/profile/credentials">
+                        <Link to="/credenciais">
                             <div className="card-action">
                                 <FaPen size={64} color="#ddd" />
                                 <div className="card-action-title">
@@ -86,15 +92,13 @@ export default function Profile({ history }) {
                                 </div>
                             </div>
                         </Link>
-
                         <div className="card-action">
                             <FaBookmark size={72} color="#ddd" />
-
                             <div className="card-action-title">
                                 <span>Seus Projetos</span>
                             </div>
                         </div>
-                        <Link to="/BUZZ/profile/favorites">
+                        <Link to="/eu">
                             <div className="card-action">
                                 <FaStar size={64} color="#ddd" />
                                 <div className="card-action-title">
@@ -102,14 +106,16 @@ export default function Profile({ history }) {
                                 </div>
                             </div>
                         </Link>
-                        <div className="card-action">
-                            <FaGraduationCap size={64} color="#ddd" />
-                            <div className="card-action-title">
-                                <span>Aprenda</span>
+                        <Link to="/eu">
+                            <div className="card-action">
+                                <FaGraduationCap size={64} color="#ddd" />
+                                <div className="card-action-title">
+                                    <span>Aprenda</span>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
-                    <Link to="/BUZZ/vouchers">
+                    <Link to="/projetos">
                         <div className="box-search">
                             <FiSearch size={64} color="#ddd" />
                             <div className="card-action-title">
@@ -119,7 +125,7 @@ export default function Profile({ history }) {
                     </Link>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </>
     );
 }
