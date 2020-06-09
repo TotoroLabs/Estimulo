@@ -1,12 +1,16 @@
-import React,  {useEffect} from "react";
+import React,  {useEffect, useState} from "react";
 import GradientHeader from "../../Components/GradientHeader";
 import Footer from "../../Components/Footer";
 import "./styles.scss";
 
 export default function Politics() {
+    const [isloading, setIsloading] = useState(true);
     useEffect(() => {
-        window.scrollTo(0, 0);
-    });
+        if(isloading === true) {
+            window.scrollTo(0, 0);
+            setIsloading(false);
+        }
+    }, [isloading]);
     return (
         <>
             <GradientHeader />
