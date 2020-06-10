@@ -43,7 +43,16 @@ Devido a quarentena. Muitos projetos estão parados e sem continuidade pela invi
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+## Workflow
 
+- [x] Criar uma base de dados API REST
+- [x] Criar uma aplicação web initial para o projeto
+- [x] Integração frontend com backend
+- [x] Desenvolver ambiente de usuário
+- [ ] Implementar recursos de segurança essenciais
+- [ ] Realizar bateria de testes da versão alpha
+- [ ] Lançar versão alpha
+- [ ] and more...
 ## Autores
 
 <table align="center">
