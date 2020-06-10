@@ -22,7 +22,6 @@ export default function Routes() {
         <Route path="/eu" component={Profile} />
         <Route path="/credenciais" component={Credentials} />
         <Route path="/notificacoes" component={Notifications} />
-
       </Switch>
     </BrowserRouter>
   );

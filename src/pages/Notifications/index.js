@@ -52,6 +52,7 @@ export default function Notifications({ history }) {
     }
     async function handleDeleteNotifications() {
         listcheckboxes.map(async (notitem) => {
+            console.log('estou enviando: ' + notifications[notitem]._id);
             await mongodb
                 .delete(`/notifications/${notifications[notitem]._id}`, {
                     headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
@@ -99,7 +100,7 @@ export default function Notifications({ history }) {
         if (JWTcookie.jwt) {
             getUserData();
         } else {
-            history.push("/login");
+            history.push("/");
         }
     }, [JWTcookie.jwt, notifications, history]);
     useEffect(() => {
@@ -118,7 +119,7 @@ export default function Notifications({ history }) {
         if (JWTcookie.jwt) {
             getUserData();
         } else {
-            history.push("/BUZZ/login");
+            history.push("/");
         }
     }, [JWTcookie.jwt, history]);
     return (
