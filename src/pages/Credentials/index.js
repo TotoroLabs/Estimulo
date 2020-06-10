@@ -9,7 +9,6 @@ import "./styles.scss";
 
 export default function Credentials({ history }) {
     const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
-    const [cookies, setCookie, removeCookie] = useCookies(["token"]);
 
     const [cameraisHiden, setCameraishiden] = useState(true);
     const [thumbnail, setThumbnail] = useState(null);
@@ -24,48 +23,61 @@ export default function Credentials({ history }) {
     const [newemailfield, setNewemailfield] = useState("");
     const [identificacaofield, setidentificacaofieldd] = useState("");
 
-      useEffect(() => {
-    async function getUserData() {
-      await mongodb
-        .get('/sessions', {
-          headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
-        })
-        .then((response) => {
-          setNamefield(response.data.name);
-          setPhonefield(response.data.phone);
-          setZipfield(response.data.ZIP);
-          setEmailfield(response.data.email);
-          setCityfield(response.data.city);
-          setNumberfield(response.data.number);
-          setStreetfield(response.data.street);
-          setidentificacaofieldd(response.data.id)
-          setUffield(response.data.uf);
-          if (response.data.thumbnail) {
-            setThumbnail(response.data.thumbnail);
-          }
-        });
-    }
-    if (JWTcookie.jwt) {
-      getUserData();
-    } else {
-      history.push('/');
-    }
-  }, [JWTcookie.jwt, history]);
+    useEffect(() => {
+        async function getUserData() {
+            await mongodb
+                .get("/sessions", {
+                    headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
+                })
+                .then((response) => {
+                    setNamefield(response.data.name);
+                    setPhonefield(response.data.phone);
+                    setZipfield(response.data.ZIP);
+                    setEmailfield(response.data.email);
+                    setCityfield(response.data.city);
+                    setNumberfield(response.data.number);
+                    setStreetfield(response.data.street);
+                    setidentificacaofieldd(response.data.id);
+                    setUffield(response.data.uf);
+                    if (response.data.thumbnail) {
+                        setThumbnail(response.data.thumbnail);
+                    }
+                });
+        }
+        if (JWTcookie.jwt) {
+            getUserData();
+        } else {
+            history.push("/");
+        }
+    }, [JWTcookie.jwt, history]);
 
     async function handlesubmit(e) {
         e.preventDefault();
         const data = new FormData();
-        data.append("name", namefield);
-        data.append("phone", phonefield);
-        data.append("ZIP", zipfield);
-        data.append("street", streetfield);
-        data.append("number", numberfield);
-        data.append("uf", uffield);
-        data.append("city", cityfield);
-        if(newemailfield !== "") {
+        if (namefield !== "") {
+            data.append("name", namefield);
+        }
+        if (phonefield !== "") {
+            data.append("phone", phonefield);
+        }
+        if (zipfield !== "") {
+            data.append("ZIP", zipfield);
+        }
+        if (streetfield !== "") {
+            data.append("street", streetfield);
+        }
+        if (numberfield !== "") {
+            data.append("number", numberfield);
+        }
+        if (uffield !== "") {
+            data.append("uf", uffield);
+        }
+        if (cityfield !== "") {
+            data.append("city", cityfield);
+        }
+        if (newemailfield !== "") {
             data.append("email", newemailfield);
         }
-
         await mongodb
             .put("/users", data, {
                 headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
@@ -86,7 +98,7 @@ export default function Credentials({ history }) {
         data.append("thumbnail", e.target.files[0]);
         await mongodb
             .put("/users", data, {
-                headers: { Authorization: `Bearer ${cookies.token}` },
+                headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
             })
             .then(() => {
                 setThumbnail(previewURL);

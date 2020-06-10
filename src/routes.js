@@ -8,6 +8,7 @@ import Politics from "./pages/Politics";
 import TOS from "./pages/TOS";
 import Profile from "./pages/Profile";
 import Credentials from "./pages/Credentials";
+import Notifications from "./pages/Notifications";
 
 export default function Routes() {
   return (
@@ -20,7 +21,7 @@ export default function Routes() {
         <Route path="/termos-de-uso" component={TOS} />
         <Route path="/eu" component={Profile} />
         <Route path="/credenciais" component={Credentials} />
-
+        <Route path="/notificacoes" component={Notifications} />
       </Switch>
     </BrowserRouter>
   );

@@ -3,13 +3,13 @@ import InnerHeader from "../../Components/InnerHeader";
 import Footer from "../../Components/Footer";
 import {
     FaGraduationCap,
-    FaStar,
+    FaBell,
     FaPen,
     FaCamera,
     FaBookmark,
 } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import { FiLogOut, FiBook } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { useCookies } from "react-cookie";
 import mongodb from "../../services/mongodb";
 import { Link } from "react-router-dom";
@@ -140,11 +140,11 @@ export default function Profile({ history }) {
                                 <span>Seus Projetos</span>
                             </div>
                         </div>
-                        <Link to="/eu">
+                        <Link to="/notificacoes">
                             <div className="card-action">
-                                <FaStar size={64} color="#ddd" />
+                                <FaBell size={64} color="#ddd" />
                                 <div className="card-action-title">
-                                    <span>Favoritos</span>
+                                    <span>Notificações</span>
                                 </div>
                             </div>
                         </Link>

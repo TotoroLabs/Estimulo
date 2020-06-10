@@ -1,0 +1,38 @@
+header.actionsheader {
+    padding: 20px 240px;
+    width: calc(100% + 240px);
+    background: var(--common-blue);
+    color: #222;
+    display: flex;
+    height: 25vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+header.actionsheader .upper-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header.actionsheader .upper-header .box-logo {
+    color: #fff;
+    line-height: 1.2;
+    font-size: 26px;
+}
+
+header.actionsheader .box-actions {
+    margin: auto auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+}
+
+header.actionsheader .box-actions * {
+    margin-right: 10px;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
