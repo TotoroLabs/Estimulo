@@ -44,7 +44,7 @@ export default function LiteNav({ history, username, thumbnail }) {
                 <div className="right-content">
                     <div className="profile">
                         <button onClick={handleActiveBoxActions}>
-                            Olá, {username ? username : "visitante"}
+                            Olá, {username ? username.split(" ")[0] : "visitante"}
                         </button>
                     </div>
                     <div

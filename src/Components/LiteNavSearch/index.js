@@ -33,7 +33,7 @@ export default function Litenav({ onSubmit, user, history }) {
         setBoxactions(false);
     }
     return (
-        <div className="lite-nav-search">
+        <section id="lite-nav-search">
             <div className="content">
                 <div className="left-content">
                     <div className="box-logo">
@@ -96,6 +96,6 @@ export default function Litenav({ onSubmit, user, history }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

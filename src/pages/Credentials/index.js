@@ -213,7 +213,7 @@ export default function Credentials({ history }) {
                                         />
                                     </div>
                                     <div className="form-element">
-                                        <label htmlFor="phone">Telefone</label>
+                                        <label htmlFor="phone">Telefone (DD)</label>
                                         <Input
                                             country="BR"
                                             name="phone"
