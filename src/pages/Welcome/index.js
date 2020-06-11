@@ -131,7 +131,7 @@ export default function Welcome({ history }) {
 
     return (
         <>
-       <LiteNav history={history} username={userdata.name}/>
+       <LiteNav history={history} username={userdata.namegit}/>
             <section id="welcome">
                 <div className="content">
                     <div className="content-center">
