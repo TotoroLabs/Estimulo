@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 
 import "./styles.scss";
 
-export default function LiteNav({ history, user }) {
+export default function LiteNav({ history, username, thumbnail }) {
     const [boxactions, setBoxactions] = useState(false);
     const [inputfield, setInputfield] = useState();
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
@@ -44,7 +44,7 @@ export default function LiteNav({ history, user }) {
                 <div className="right-content">
                     <div className="profile">
                         <button onClick={handleActiveBoxActions}>
-                            Olá, {user ? user : "visitante"}
+                            Olá, {username ? username : "visitante"}
                         </button>
                     </div>
                     <div
@@ -54,7 +54,7 @@ export default function LiteNav({ history, user }) {
                         onMouseOver={handleActiveBoxActions}
                         onMouseOut={handleDisableBoxActions}
                     >
-                        {user ? (
+                        {username ? (
                             <>
                                 <Link to="/eu">
                                     <div className="action-item">

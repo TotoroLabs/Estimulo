@@ -2,28 +2,36 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MailSent from "../../assets/mockups/undraw_Mail_sent_qwwx.svg";
 import LiteNav from "../../Components/LiteNav";
+import mongodb from "../../services/mongodb";
 import Footer from "../../Components/Footer";
 import { useCookies } from "react-cookie";
 import "./styles.scss";
 export default function Enviado({ history }) {
-    const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+    const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     const [userdata, setUserdata] = useState({});
     const location = useLocation();
-    function getDataLocation() {
-        if (location.state) {
-            removeCookie("token", { path: "/" });
-            setUserdata(location.state.user);
-        } else {
-            history.push("/");
-        }
-    }
+
     useEffect(() => {
-        getDataLocation();
-    });
+        async function getUserData() {
+            await mongodb
+                .get("/sessions", {
+                    headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
+                })
+                .then((response) => {
+                    setUserdata(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        if (JWTcookie.jwt) {
+            getUserData();
+        }
+    }, [JWTcookie.jwt]);
     return (
         <>
             <section id="sent">
-                <LiteNav user={userdata.nome} />
+                <LiteNav history={history} username={userdata.name} thumbnail={userdata.thumbnail} />
                 <div className="content">
                     <div className="content-header">
                         <header>
