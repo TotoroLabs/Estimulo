@@ -6,9 +6,9 @@ import { useCookies } from "react-cookie";
 import "./styles.scss";
 
 export default function LiteNav({ history, username, thumbnail }) {
-    const [boxactions, setBoxactions] = useState(false);
+    const [boxactions, setBoxactions] = useState(true);
     const [inputfield, setInputfield] = useState();
-    const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+    const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     function handleLogin() {
         window.open(
             `${process.env.REACT_APP_SUAP_URL}/o/authorize/?response_type=token&grant_type=implict&client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
@@ -25,7 +25,7 @@ export default function LiteNav({ history, username, thumbnail }) {
         setBoxactions(false);
     }
     function handleLogout() {
-        removeCookie("token", { path: "/" });
+        removeJWTcookie("jwt", { path: "/" });
         history.push("/");
     }
     return (

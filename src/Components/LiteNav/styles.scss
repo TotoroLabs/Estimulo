@@ -24,7 +24,8 @@ nav#litenav .wrapper .right-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    max-width: 315px;
+    width: 100%;
 }
 nav#litenav .wrapper .left-content .logo {
     margin-top: 5px;
@@ -41,6 +42,13 @@ nav#litenav .wrapper .left-content .brand {
     strong {
         font-weight: 700;
     }
+}
+nav#litenav .wrapper .right-content {
+    display: flex;
+    height: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
 }
 nav#litenav .wrapper .right-content button {
     border: 0;
