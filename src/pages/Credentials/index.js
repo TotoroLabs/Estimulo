@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import InnerHeader from "../../Components/InnerHeader";
 import { FaCamera, FaArrowLeft } from "react-icons/fa";
-
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+import Input from "react-phone-number-input/input";
 import { useCookies } from "react-cookie";
 import mongodb from "../../services/mongodb";
 import { Link } from "react-router-dom";
@@ -9,7 +11,9 @@ import "./styles.scss";
 
 export default function Credentials({ history }) {
     const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
-
+    const [alertmsg, setAlertmsg] = useState("");
+    const [alertisopen, setAlertisopen] = useState(false);
+    const [alertseverity, setAlertseverity] = useState("");
     const [cameraisHiden, setCameraishiden] = useState(true);
     const [thumbnail, setThumbnail] = useState(null);
     const [namefield, setNamefield] = useState("");
@@ -22,6 +26,17 @@ export default function Credentials({ history }) {
     const [emailfield, setEmailfield] = useState("");
     const [newemailfield, setNewemailfield] = useState("");
     const [identificacaofield, setidentificacaofieldd] = useState("");
+
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
+        setAlertmsg("");
+        setAlertisopen(false);
+    };
+    function Alert(props) {
+        return <MuiAlert elevation={6} variant="filled" {...props} />;
+    }
 
     useEffect(() => {
         async function getUserData() {
@@ -83,11 +98,15 @@ export default function Credentials({ history }) {
                 headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
             })
             .then(() => {
-                alert("sucesso");
+                setAlertisopen(true);
+                setAlertmsg("Dados atualizados com sucesso!");
+                setAlertseverity("success");
             })
             .catch((error) => {
                 console.log(error);
-                alert("Não foi possível alterar, revise seus dados");
+                setAlertisopen(true);
+                setAlertmsg("Não foi possível alterar, revise seus dados");
+                setAlertseverity("error");
             });
     }
 
@@ -110,6 +129,15 @@ export default function Credentials({ history }) {
 
     return (
         <>
+            <Snackbar
+                open={alertisopen}
+                autoHideDuration={4000}
+                onClose={handleClose}
+            >
+                <Alert onClose={handleClose} severity={alertseverity}>
+                    {alertmsg}
+                </Alert>
+            </Snackbar>
             <InnerHeader />
             <section id="credentials">
                 <div className="content">
@@ -186,15 +214,12 @@ export default function Credentials({ history }) {
                                     </div>
                                     <div className="form-element">
                                         <label htmlFor="phone">Telefone</label>
-                                        <input
-                                            type="text"
+                                        <Input
+                                            country="BR"
                                             name="phone"
                                             id="phone"
-                                            minLength="11"
                                             value={phonefield}
-                                            onChange={(e) =>
-                                                setPhonefield(e.target.value)
-                                            }
+                                            onChange={setPhonefield}
                                             placeholder={phonefield}
                                         />
                                     </div>

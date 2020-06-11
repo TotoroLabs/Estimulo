@@ -126,7 +126,7 @@ export default function Profile({ history }) {
                         </div>
                     </div>
                     <div className="box-actions">
-                        <Link to="/credenciais">
+                        <Link to="/eu/credenciais">
                             <div className="card-action">
                                 <FaPen size={64} color="#ddd" />
                                 <div className="card-action-title">
@@ -140,7 +140,7 @@ export default function Profile({ history }) {
                                 <span>Seus Projetos</span>
                             </div>
                         </div>
-                        <Link to="/notificacoes">
+                        <Link to="/eu/notificacoes">
                             <div className="card-action">
                                 <FaBell size={64} color="#ddd" />
                                 <div className="card-action-title">
@@ -157,7 +157,7 @@ export default function Profile({ history }) {
                             </div>
                         </Link>
                     </div>
-                    <Link to="/projetos">
+                    <Link to="/dashboard">
                         <div className="box-search">
                             <FiSearch size={64} color="#ddd" />
                             <div className="card-action-title">
