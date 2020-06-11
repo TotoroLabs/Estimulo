@@ -1,100 +1,112 @@
-.lite-nav {
-  height: 60px;
-  background: #f5f5f2;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  padding: 1.2rem 5rem;
-  left: 0;
-  top: 0;
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  z-index: 15510;
-  justify-content: space-between;
+.lite-nav-search {
+    height: 60px;
+    background: #f5f5f2;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 1.2rem 5rem;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: flex;
+    z-index: 15510;
+}
+.lite-nav-search .content {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+.lite-nav-search .content .left-content,
+.lite-nav-search .content .center-content,
+.lite-nav-search .content .right-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 315px;
+    width: 100%;
 }
 
-.lite-nav .box-logo {
-  color: #f8d660;
-  font-family: 'Pacifico';
-  line-height: 1.2;
-  font-size: 26px;
-  cursor: pointer;
+.lite-nav-search .content .left-content .box-logo {
+    color: var(--common-blue);
+    line-height: 1.2;
+    font-size: 26px;
+    cursor: pointer;
 }
 
-.lite-nav .box-search {
-  margin-left: 82px;
-  border: 1px solid #ddd;
-  padding: 0.5rem 0;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: #eee;
+.lite-nav-search .content .center-content .box-search {
+    border: 1px solid #ddd;
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #eee;
+    margin: 0 auto;
 }
-.lite-nav .box-actions {
-  color: #888;
-  display: flex;
-  height: 60px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: right;
+.lite-nav-search .content .right-content {
+    color: #888;
+    display: flex;
+    height: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
 }
-.lite-nav .actions {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  position: fixed;
-  top: 60px;
-  right: 60px;
-  border-radius: 2px;
-  width: 200px;
-  height: 132px;
-  background: #fff;
-  flex-direction: column;
-  text-align: right;
+.lite-nav-search .content .right-content .actions {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    border-radius: 2px;
+    width: 200px;
+    background: #fff;
+    flex-direction: column;
+    text-align: right;
 }
 .active {
-  display: flex;
+    display: flex;
 }
 .disable {
-  display: none;
+    display: none;
 }
 
-.lite-nav .actions .action-item {
-  cursor: pointer;
-  padding: 0.4rem 1.2rem;
-  width: 100%;
-  &:hover {
-    background: #f5f5f2;
-  }
+.lite-nav-search .content .right-content .actions .action-item {
+    cursor: pointer;
+    padding: 0.4rem 1.2rem;
+    width: 100%;
+    &:hover {
+        background: #f5f5f2;
+    }
 }
 
-.lite-nav .box-actions button {
-  cursor: pointer;
-  border: 0;
-  background: transparent;
-  color: #888;
+.lite-nav-search .content .right-content button {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: #888;
 }
-.lite-nav .box-actions .icon-user {
-  margin-left: 10px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 1px solid #888;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  overflow: hidden;
+.lite-nav-search .content .right-content .icon-user {
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    overflow: hidden;
 }
-.lite-nav .box-search form input {
-  background: transparent;
-  border: 0;
-  margin-left: 5px;
-  color: #666;
-  font-size: 14px;
-  &::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
+.lite-nav-search .content .box-search form input {
+    background: transparent;
+    border: 0;
+    margin-left: 5px;
     color: #666;
-    opacity: 1; /* Firefox */
-  }
+    font-size: 14px;
+    &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #666;
+        opacity: 1; /* Firefox */
+    }
 }

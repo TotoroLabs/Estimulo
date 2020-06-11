@@ -9,6 +9,7 @@ import TOS from "./pages/TOS";
 import Profile from "./pages/Profile";
 import Credentials from "./pages/Credentials";
 import Notifications from "./pages/Notifications";
+import Dashboard from "./pages/Dashboard"
 
 export default function Routes() {
   return (
@@ -19,9 +20,10 @@ export default function Routes() {
         <Route path="/enviado" component={Enviado} />
         <Route path="/politicas-de-privacidade" component={Politics} />
         <Route path="/termos-de-uso" component={TOS} />
-        <Route path="/eu" component={Profile} />
-        <Route path="/credenciais" component={Credentials} />
-        <Route path="/notificacoes" component={Notifications} />
+        <Route path="/eu" exact component={Profile} />
+        <Route path="/eu/credenciais" component={Credentials} />
+        <Route path="/eu/notificacoes" component={Notifications} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
     </BrowserRouter>
   );
