@@ -1,31 +1,24 @@
 import React, {useState} from 'react'
 import './styles.scss'
-import Modal from '../Modal'
-export default function Card({user, project}) {
-  const [modalisopen, setModalisopen] = useState(false);
-  function evoqueModal() {
-    setModalisopen(true)
-  }
-  function handleCloseModal() {
-    setModalisopen(false);
-  }
+export default function Card({project}) {
+    function handleClick() {
+        alert('ok')
+    }
 return (
     <>
-    { modalisopen ? <Modal project={project} user={user} onClick={handleCloseModal}/> : null }
-    <div className="card" >
+    <div className="card"  onClick={handleClick}>
     <div className="card-header">
-      <div className="title" onClick={() => evoqueModal()}>
+      <div className="title">
         <h3>{project.name}</h3>
       </div>
       <div className="seller">
         <span>{project.owner.name}</span>
       </div>
     </div>
-    <div className="card-img" onClick={() => evoqueModal()}>
+    <div className="card-img">
       <img
-        src={project.photo}
+        src={project.thumbnail}
         alt=""
-        srcset=""
       />
     </div>
     <div className="card-info">
