@@ -41,7 +41,7 @@ export default function Litenav({ onSubmit, user, history }) {
                     </div>
                     <Link to="/">
                         <div className="box-logo">
-                            <h3>Estímulo IFRN</h3>
+                            <span><strong>Estímulo</strong> IFRN</span>
                         </div>
                     </Link>
                 </div>
@@ -68,7 +68,7 @@ export default function Litenav({ onSubmit, user, history }) {
                     onMouseLeave={handleDisableBoxActions}
                 >
                     <button onClick={handleActiveBoxActions}>
-                        <span>Olá {user ? user.name : "visitante"}</span>
+                        <span>Olá, {user ? user.name.split(" ")[0] : "visitante"}</span>
                     </button>
                     <div className="icon-user">
                         {user ? (

@@ -9,6 +9,24 @@ import "./sytles.scss";
 export default function Welcome({ history }) {
     const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+    const [userdata, setUserdata] = useState({});
+    useEffect(() => {
+        async function getUserData() {
+            await mongodb
+                .get("/sessions", {
+                    headers: { Authorization: `Bearer ${JWTcookie.jwt}` },
+                })
+                .then((response) => {
+                    setUserdata(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        if (JWTcookie.jwt) {
+            getUserData();
+        }
+    }, [JWTcookie.jwt]);
 
     function createToken() {
         var startTime = new Date().getTime();
@@ -27,7 +45,6 @@ export default function Welcome({ history }) {
             email: response.data.email,
             identificacao: response.data.identificacao,
         }).then((response) => {
-                console.log(" sessao criada com sucesso!");
                 var startTime = new Date().getTime();
                 var finishTime = new Date(
                     startTime + 36000 * 1000
@@ -65,24 +82,22 @@ export default function Welcome({ history }) {
                     headers: { Authorization: `Bearer ${cookies.token}` },
                 })
                 .then(async (response) => {
-                    console.log(
+/*                     console.log(
                         "recebi do oauth3rd:" +
                             JSON.stringify(response.data.identificacao)
-                    );
+                    ); */
                     const mongodbresponse = await mongodb.get(
                         `/form/${response.data.identificacao}`
                     );
-                    console.log(
+/*                     console.log(
                         "a resposta é: " + JSON.stringify(mongodbresponse.data)
-                    );
+                    ); */
                     const userexists = await mongodb.get(
                         `/users/${response.data.identificacao}`
                     );
                     if (Object.keys(userexists.data).length) {
-                        console.log('ja tem usuario, criando sessao');
                         createSession(response);
                     } else {
-                        console.log('nao tem usuario, criando sessao e usuario');
                         createUser(response);
                         createSession(response);
                     }
@@ -116,7 +131,7 @@ export default function Welcome({ history }) {
 
     return (
         <>
-            <LiteNav history={history} />
+       <LiteNav history={history} username={userdata.namegit}/>
             <section id="welcome">
                 <div className="content">
                     <div className="content-center">
