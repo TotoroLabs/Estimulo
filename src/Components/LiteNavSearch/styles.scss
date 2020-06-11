@@ -29,10 +29,17 @@
 }
 
 .lite-nav-search .content .left-content .box-logo {
-    color: var(--common-blue);
+    color: var(--common-text-graydark);
     line-height: 1.2;
-    font-size: 26px;
+    font-size: 22px;
+    font-weight: 100;
     cursor: pointer;
+    img {
+        margin-top: 8px;
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+    }
 }
 
 .lite-nav-search .content .center-content .box-search {
@@ -85,11 +92,12 @@
     border: 0;
     background: transparent;
     color: #888;
+    font-size: 16px;
 }
 .lite-nav-search .content .right-content .icon-user {
     margin-left: 10px;
-    width: 25px;
-    height: 25px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid #888;
     display: flex;
