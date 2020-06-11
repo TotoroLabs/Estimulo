@@ -6,7 +6,7 @@ import { useCookies } from "react-cookie";
 import "./styles.scss";
 
 export default function LiteNav({ history, username, thumbnail }) {
-    const [boxactions, setBoxactions] = useState(true);
+    const [boxactions, setBoxactions] = useState(false);
     const [inputfield, setInputfield] = useState();
     const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
     function handleLogin() {
