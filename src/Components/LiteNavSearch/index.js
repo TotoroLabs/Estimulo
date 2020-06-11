@@ -7,7 +7,7 @@ import Logo from "../../assets/logo.svg";
 export default function Litenav({ onSubmit, user, history }) {
     const [JWTcookie, setJWTcookie, removeJWTcookie] = useCookies(["jwt"]);
 
-    const [boxactions, setBoxactions] = useState(false);
+    const [boxactions, setBoxactions] = useState(true);
     const [inputfield, setInputfield] = useState();
 
     function handleLogout() {
