@@ -43,7 +43,7 @@ export default function Enviado({ history }) {
                     </div>
                     <div className="center-content">
                         <div className="box-text">
-                            A Estimulo agradeçe pela sua contribuição. Nossa
+                            A Estimulo agradece pela sua contribuição. Nossa
                             equipe irá colher todas as submissões e estaremos
                             criando novos recursos em breve.
                         </div>
