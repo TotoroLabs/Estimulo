@@ -25,6 +25,7 @@ html {
     background: #f0f1f2;
     -webkit-font-smoothing: antialiased !important;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {

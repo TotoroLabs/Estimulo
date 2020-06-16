@@ -118,3 +118,12 @@ section#lite-nav-search .content .box-search form input {
         opacity: 1; /* Firefox */
     }
 }
+
+@media (max-width: 650px) {
+    section#lite-nav-search .content .left-content .box-logo:last-child {
+        display: none;
+    }
+    section#lite-nav-search .content .right-content button {
+        display: none;
+    }
+}

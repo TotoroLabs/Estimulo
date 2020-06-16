@@ -1,5 +1,4 @@
 header.innerheader {
-    padding: 20px 240px;
     width: 100%;
     background: var(--common-blue);
     color: #fff;
@@ -8,6 +7,8 @@ header.innerheader {
 header.innerheader .content {
     max-width: 1400px;
     width: 100%;
+    padding: 0.7rem 1rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
