@@ -27,10 +27,11 @@
 </p>
 
 ## :warning: Atenção
+:fire: O projeto está sendo refeito. Será implementada a arquitetura Flux utilizando Redux.
+
 Foi lançado o primeiro protótipo da plataforma. Disponibilizamos um questionário para que estudantes e docentes estejam submetendo para que venhamos a ter dimensão da situação em que os projetos científicos se encontram. Caso você seja um integrande da rede do IFRN com acesso ao SUAP, contribua com sua opinião. Ela será importante para definirmos prioridades e como atingir de maneira efetiva o público alvo
 
 > Não há uma data limite de submissão, mas sua duração será limitada. Sendo removido assim que as primeiras funcionalidades estejam prontas.
-:fire: O projeto está sendo refeito. Será implementada a arquitetura Flux utilizando Redux.
 
 ## 💻 Projeto
 
